@@ -19,10 +19,10 @@ poco = UnityPoco()
 # 1. 具体执行逻辑,使用其他逻辑请先导包
 # 2. 调用perfdog进行打点操作
 
-# test_fhmj_jingzhi.jingzhi()
-# test_fhmj_shangcheng.shangcheng()
-# test_fhmj_huodong.huodong()
-# test_fhmj_zhuangban.zhuangban()
+test_fhmj_jingzhi.jingzhi()
+test_fhmj_shangcheng.shangcheng()
+test_fhmj_huodong.huodong()
+test_fhmj_zhuangban.zhuangban()
 test_fhmj_duobao.duobao()
 
 
