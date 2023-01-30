@@ -14,7 +14,7 @@ poco = UnityPoco()
 # 执行逻辑部分
 # 1. 具体执行逻辑,使用其他逻辑请先导包
 # 2. 调用perfdog进行打点操作
-test_fhmj.shangcheng()
+test_fhmj
 
 
 # 后置操作部分
