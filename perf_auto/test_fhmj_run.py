@@ -6,6 +6,10 @@ from test_cases.test_fhmj_cases import test_fhmj_huodong
 from test_cases.test_fhmj_cases import test_fhmj_jingzhi
 from test_cases.test_fhmj_cases import test_fhmj_zhuangban
 from test_cases.test_fhmj_cases import test_fhmj_duobao
+# from collections import Iterable
+from collections.abc import Iterable
+print(isinstance('abc', Iterable))
+
 # 前置工作
 # 0. 设置ADB端口为5555 命令:adb tcpip 5555 ,IP为手机连接wifi的IP查看即可
 # 1. 连接手机 有线模式使用方法 youxian_connect() 无线使用wifi_connect()
@@ -19,7 +23,7 @@ poco = UnityPoco()
 # 1. 具体执行逻辑,使用其他逻辑请先导包
 # 2. 调用perfdog进行打点操作
 
-test_fhmj_jingzhi.jingzhi()
+# test_fhmj_jingzhi.jingzhi()
 test_fhmj_shangcheng.shangcheng()
 test_fhmj_huodong.huodong()
 test_fhmj_zhuangban.zhuangban()
