@@ -26,7 +26,7 @@ test_fhmj_shangcheng.shangcheng()
 test_fhmj_huodong.huodong()
 test_fhmj_zhuangban.zhuangban()
 test_fhmj_duobao.duobao()
-
+111
 
 # 后置操作部分
 # 1. 停止pefdog并上传数据
