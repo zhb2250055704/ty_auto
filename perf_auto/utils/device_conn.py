@@ -1,5 +1,8 @@
 from airtest.core.api import *
 import os
+# 如果adb collection报错：Using or importing the ABCs from 'collections'.......，开启下面两行代码
+# from collections.abc import Iterable
+# print(isinstance('abc', Iterable))
 
 '''
 分为有线模式与无线模式
