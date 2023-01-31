@@ -1,6 +1,6 @@
 from airtest.core.api import *
 #导入图片文件
-from perf_auto.images import fhmj_img
+# from perf_auto.images import fhmj_img
 from poco.drivers.unity3d import UnityPoco
 poco = UnityPoco()
 
