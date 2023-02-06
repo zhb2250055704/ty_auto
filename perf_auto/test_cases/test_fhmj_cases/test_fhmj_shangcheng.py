@@ -14,5 +14,10 @@ def shangcheng():
         #poco("ui_tab_layout").child("MJStoreTab")[2].child("Image (1)").click()
     for i in range(1,6):
         poco("ui_ScrollViewContent").child("MJStoreItemCell")[1].child("ui_btn_ok").click()
-        poco("ui_bottom_text").click()
+        poco(name="ui_bottom_text").click()
+        if poco(name="Image (2)").exists():
+            poco("btn_close").click()
     poco("ui_btn_back").click()
+
+if __name__ == '__main__':
+    shangcheng()
