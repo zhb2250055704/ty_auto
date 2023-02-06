@@ -12,6 +12,8 @@ def duobao():
         poco("ui_btn_add1").click()
     poco("ui_btn_buy").click()
     poco("ui_bottom_text").click()
+    if poco(name="Image (2)").exists():
+        poco("btn_close").click()
     for i in range(1,6):
         poco("ui_btn_open_once").click()
         sleep(5)
