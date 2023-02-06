@@ -4,7 +4,7 @@ from time import sleep
 
 def chengjiujiemian():
     print('--------成就界面测试用例开始执行--------')
-#     点击进入成就界面.
+#     点击进入成就界面
     print('------开始进入成就界面------')
     poco(name='ui_hall_down_gongjulan_chengjiu').click()
     poco(name = 'AchievementItem1').click()
