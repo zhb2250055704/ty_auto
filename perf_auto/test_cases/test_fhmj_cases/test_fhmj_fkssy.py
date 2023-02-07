@@ -17,12 +17,6 @@ def fkssy():
         poco(texture="table_top_fanxing").wait_for_appearance()
         #poco("ui_img_yellow").click()
 #         poco("ui_img_menu_flod").click()
-        for x in range(1,6):
-            poco(name="table_people_1").click()
-            sleep(1)
-            poco.click([0.5778258, 0.5478659])
-            sleep(2)
-            print(f'第{x}次金币表情发送成功')
 #             poco("ui_child").child("MagicEmojiItem")[4].child("ui_bg").click()
         if poco(name = "ui_img_menu_flod").exists():
             poco(name = "ui_img_menu_flod").click()
@@ -35,6 +29,12 @@ def fkssy():
 #         poco("ui_waitOpengift_login").wait_for_appearance(timeout=400)
 #         poco("close").wait(timeout=300)
 #         print(f'---关闭红包---')
+        for x in range(1,6):
+            poco(name="table_people_1").click()
+            sleep(1)
+            poco.click([0.5778258, 0.5478659])
+            sleep(2)
+            print(f'第{x}次金币表情发送成功')
         poco(name = "title0").wait_for_appearance
         poco("ui_press").wait_for_appearance(timeout=500)
         if poco("title").exists():
