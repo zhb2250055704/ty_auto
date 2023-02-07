@@ -17,40 +17,50 @@ def hzxl():
         poco("ui_btn_close").click()
     print(f'关闭规则介绍')
     #对局循环
-    for i in range(1,4):
+    for i in range(1,3):
         poco(texture="table_top_fanxing").wait_for_appearance()
         poco("ui_img_yellow").click()
         print(f'换牌成功')
         if poco(name = "ui_img_menu_flod").exists():
             poco(name = "ui_img_menu_flod").click()
             poco(name="ui_table_zidonghupai_text").click()
+            print(f'托管成功')
         else:
             poco(name = "ui_img_menu_unflod").click()
             poco(name="ui_table_zidonghupai_text").click()
-        print(f'托管成功')
-#         poco("ui_waitOpengift_login").wait_for_appearance(timeout=400)
-        poco("close").wait_for_appearance(timeout=500)
-        poco("close").click()
-        print(f'关闭红包成功')
+            print(f'托管成功')
+#      poco("ui_waitOpengift_login").wait_for_appearance(timeout=400)
         if i == 1:
+            for x in range(1,6):
+                poco(name = "table_people_1").click()
+                sleep(1)
+                poco.click([0.5778258, 0.5478659])
+                sleep(2)
+                print(f'第{x}次金币表情发送成功')
+            poco("close").wait_for_appearance(timeout=500)
+            poco("Checkmark").click()
+            print(f'勾选不在提示')
+            poco(text = "确 定").click()
+            print(f'关闭红包成功')
             poco("ui_btnBuy").wait(3).click()
 #             poco("ui_btnBuy").click()
             poco("ui_button_again").click()
-            print(f'第一次循环完成')
+            print(f'第{i}次循环完成')
+#         elif i == 2:
+#             poco("ui_button_again").wait_for_appearance()
+#             poco("ui_button_again").click()
+#             sleep(3)
+#             if poco("ui_center_text").exists():
+#                 poco("ui_center_text").click()
+#             print(f'第二次循环完成')
         elif i == 2:
-            poco("ui_button_again").wait_for_appearance()
-            poco("ui_button_again").click()
-            sleep(3)
-            if poco("ui_center_text").exists():
-                poco("ui_center_text").click()
-            print(f'第二次循环完成')
-        elif i == 3:
+            poco(name = 'ui_button_again').wait_for_appearance(timeout=500)
             if poco(name = 'ui_btn_detail').exists():
                 poco(name = 'ui_btn_detail').click()
             poco(name = 'ui_button_back').click()
             poco(name = 'ui_table_out').click()
             poco(name = "ui_btn_1").click()
-            print(f'第三次循环完成')
+            print(f'第{i}次循环完成')
     if poco(name="Image (2)").exists():
         poco("btn_close").click()
-    print(f'关闭雀神弹窗')
+        print(f'关闭雀神弹窗')
