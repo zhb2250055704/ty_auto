@@ -7,7 +7,13 @@ def chengjiujiemian():
 #     点击进入成就界面
     print('------开始进入成就界面------')
     poco(name='ui_hall_down_gongjulan_chengjiu').click()
-    poco(name = 'AchievementItem1').click()
+    if poco(name = 'chengjidacheng_bj').exists():
+        poco(name='chengjidacheng_bj').click()
+        print('成就标签未获取到，改用坐标定位点击')
+    else:
+        poco.click([0.4641776, 0.924202144])
+        poco(name = 'chengjidacheng_bj').click()
+        print('使用坐标定位，获取到成就标签，点击进入')
     print('--------进入成就界面完成---------')
 #     静止1min
     print('开始静止1分钟')
@@ -29,8 +35,8 @@ def chengjiujiemian():
         poco(text="胡天胡地").click()
         poco(text="国士无双").click()
         poco(text="杠上开花").click()
-        poco(text="雀神之路").click()
         poco(text="杠上开花").swipe([0.003, -0.2324])
+        poco(text="雀神之路").click()
         poco(text="挑战成就").click()
         poco(text="知难而进").click()
         poco(text="一叶知秋").click()
@@ -49,3 +55,6 @@ def chengjiujiemian():
     poco(name = 'ui_button_back').click()
     print('========返回完成=======')
     print('============结束执行成就场景============')
+
+if __name__ == '__main__':
+    chengjiujiemian()
