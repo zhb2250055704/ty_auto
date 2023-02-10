@@ -30,15 +30,25 @@ def request():
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
     }
 
-    data = {   #请求的data参数
+    data1 = {   #请求的data参数
         'userId':num_id,
         'itemId':'user:conch',
         'count':'1000000',
         'decoration':''
     }
 
-    post_data = urlencode(data)    #使用urlencode方法处理请求的data数据。因为请求头中的Content-Type使用的是x-www-form-urlencoded，所以需要处理。
-    r = requests.post(url=url, data=post_data, headers=header)   #向HTML网页提交POST请求的方法并赋值给对象
+    data2 = {
+        'userId': num_id,
+        'itemId': 'user:chip',
+        'count': '10000000000000000',
+        'decoration': ''
+    }
+
+    post_data1 = urlencode(data1)    #使用urlencode方法处理请求的data数据。因为请求头中的Content-Type使用的是x-www-form-urlencoded，所以需要处理。
+    post_data2 = urlencode(data2)
+    r = requests.post(url=url, data=post_data1, headers=header)   #向HTML网页提交POST请求的方法并赋值给对象
+    R = requests.post(url=url,data=post_data2, headers=header)
+
     A = r.text
     B = '增减成功'
     if B in A:
@@ -49,5 +59,8 @@ def request():
     # print(r.content)   #内容的二进制形式
     # print(r.url)   #返回响应HTML地址
     # print(r.status_code) #返回状态码（内容值为‘200’表示访问成功）
+
+if __name__ == '__main__':
+    request()
 
 

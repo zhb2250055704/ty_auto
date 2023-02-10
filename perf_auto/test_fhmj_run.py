@@ -13,7 +13,7 @@ from test_cases.test_fhmj_cases import test_fhmj_fxdh
 from test_cases.test_fhmj_cases import test_fhmj_cjjm
 from test_cases.test_fhmj_cases import test_fhmj_8hzjmtz
 from test_cases.test_fhmj_cases import test_fhmj_shangchengtiaozhuan
-from test_cases.test_fhmj_cases import test_fhmj_shimingrenzhen
+from test_cases.test_fhmj_cases import test_fhmj_xsyd
 from utils import fhmj_gm
 
 
@@ -40,11 +40,10 @@ poco = UnityPoco()
 # 3.2. 调用perfdog进行打点操作
 
 
-#实名认证
-test_fhmj_shimingrenzhen.shimingrenzhen()
+#新手引导
+test_fhmj_xsyd.xsyd()
 #发放点券
 fhmj_gm.request()
-
 
 # 测试用例
 # 大厅界面：大厅界面静置2分钟
