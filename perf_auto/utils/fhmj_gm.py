@@ -19,7 +19,8 @@ def huoquID():
     num_id = id[3::]
     print('你的账户ID：'+ num_id)
     poco("ui_close_btn_userinfo").click()
-    return id
+    return num_id
+
 def gm_dianjuan(id,num):
     url = 'http://81.70.14.160:8016/gtest/majiang/send_rewards'    #请求地址
     header = {   #请求头
@@ -89,5 +90,9 @@ def gm_jinbi(id,num):
     # print(r.content)   #内容的二进制形式
     # print(r.url)   #返回响应HTML地址
     # print(r.status_code) #返回状态码（内容值为‘200’表示访问成功）
+
+if __name__ == '__main__':
+    id = huoquID()
+    gm_dianjuan(id,1000000)
 
 
