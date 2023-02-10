@@ -41,8 +41,8 @@ poco = UnityPoco()
 # 过滤logo
 logging.getLogger("airtest").setLevel(logging.ERROR)
 # 连接方式
-# device_conn.youxian_connect()
-device_conn.wifi_connect()
+device_conn.youxian_connect()
+# device_conn.wifi_connect()
 # 新手引导
 test_fhmj_xsyd.xsyd()
 # 获取id
@@ -54,7 +54,8 @@ id = fhmj_gm.huoquID()
 # 3.2. 调用perfdog进行打点操作
 
 
-# # 测试用例
+# 测试用例
+fhmj_gm.gm_dianjuan(id,100000)
 # 大厅界面：大厅界面静置2分钟
 test_fhmj_jingzhi.jingzhi()
 # 活动界面："1.持续滑动活动列表20秒 2.切换一轮活动页签共5次"
@@ -69,6 +70,7 @@ test_fhmj_duobao.duobao()
 test_fhmj_xlhz.hzxl()
 # 疯狂十三幺："1.进行2场完整对局 2.在对局中向对手发送金币表情5次"
 test_fhmj_fkssy.fkssy()
+fhmj_gm.gm_jinbi(id,10000000000000000)
 # 疯狂八红中 ："1.进行2场完整对局 2.在对局中向对手发送金币表情5次"
 test_fhmj_fk8hz.fk8hz()
 # 胡牌特效：连续点击播放胡牌特效一轮

@@ -6,7 +6,12 @@ poco = UnityPoco()
 
 #活动
 def huodong():
-    poco("ui_hall_down_gongjulan_huodong").click()
+    poco(name='ui_hall_down_gongjulan_huodong').click()
+    if poco(text='每日任务').exists():
+        print('活动页面打开成功')
+    else:
+        poco.click([0.318259031, 0.924202144])
+        print('使用坐标定位，活动页面打开，点击进入')
     for i in range(0,20):
         poco(text='每日任务').drag_to(poco(text="杠上杠新玩法"))
         poco(text = '杠上杠新玩法').drag_to(poco(text="每日任务"))
