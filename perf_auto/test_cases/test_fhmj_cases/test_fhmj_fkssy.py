@@ -50,6 +50,6 @@ def fkssy():
             poco(name = 'ui_table_out').click()
             poco(name = "ui_btn_1").click()
             print(f'第二次循环完成')
-    if poco(name="Image (2)").exists():
-        poco("btn_close").click()
-        print(f'关闭雀神弹窗')
+            if poco(name='btn_go').exists():
+                poco(name='btn_close').click()
+                print(f'关闭雀神弹窗')
