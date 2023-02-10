@@ -1,5 +1,7 @@
+import logging
 from airtest.core.api import *
 from utils import device_conn
+from poco.drivers.unity3d import UnityPoco
 from utils import perfdog
 from test_cases.test_fhmj_cases import test_fhmj_shangcheng
 from test_cases.test_fhmj_cases import test_fhmj_huodong
@@ -16,36 +18,43 @@ from test_cases.test_fhmj_cases import test_fhmj_shangchengtiaozhuan
 from test_cases.test_fhmj_cases import test_fhmj_xsyd
 from utils import fhmj_gm
 
+'''
+前置操作：
+0. 环境准备： 
+    创建poco对象,不使用poco注销即可：poco = UnityPoco()
+    过滤airtest自带的log，只显示ERROR与print打印输出：logging.getLogger("airtest").setLevel(logging.ERROR)
+1.连接手机：
+    连接方式 有线：device_conn.youxian_connect()
+    无线方式 无线：device_conn.wifi_connect()
+2.新手引导：
+    test_fhmj_xsyd.xsyd()
+3.获取ID：
+    使用ID变量，存入获取的ID 方法为：id = fhmj_gm.huoquID()
+4.GM工具的调用：
+    获取ID方法 huoquID() 返回ID，在RUN方法里保存起来ID
+    增加点券方法，gm_dianjuan(id,num) 在run方法里，传入ID和数量 进行发送
+    增加金币方法，gm_jinbi(id,num) 在run方法里，传入ID和数量 进行发送
 
-# log 过滤 ，只显示ERROR与print打印输出
-import logging
-logger = logging.getLogger("airtest")
-logger.setLevel(logging.ERROR)
-
-# 前置工作
-# 0. 设置ADB端口为5555 命令:adb tcpip 5555 ,IP为手机连接wifi的IP查看即可
-# 1. 连接手机 有线模式使用方法 youxian_connect() 无线使用wifi_connect()
-# device_conn.wifi_connect()
-
-
-# 调试模式，使用有线模式便于调试
-device_conn.youxian_connect()
-
-# 2. 创建poco对象,不使用poco注销即可
-from poco.drivers.unity3d import UnityPoco
+'''
+# poco
 poco = UnityPoco()
+# 过滤logo
+logging.getLogger("airtest").setLevel(logging.ERROR)
+# 连接方式
+# device_conn.youxian_connect()
+device_conn.wifi_connect()
+# 新手引导
+test_fhmj_xsyd.xsyd()
+# 获取id
+id = fhmj_gm.huoquID()
+
 
 # 3. 执行逻辑部分
 # 3.1. 具体执行逻辑,使用其他逻辑请先导包
 # 3.2. 调用perfdog进行打点操作
 
 
-#新手引导
-test_fhmj_xsyd.xsyd()
-#发放点券
-fhmj_gm.request()
-
-# 测试用例
+# # 测试用例
 # 大厅界面：大厅界面静置2分钟
 test_fhmj_jingzhi.jingzhi()
 # 活动界面："1.持续滑动活动列表20秒 2.切换一轮活动页签共5次"

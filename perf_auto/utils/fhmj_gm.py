@@ -5,16 +5,23 @@ from airtest.core.api import *
 from poco.drivers.unity3d import UnityPoco
 poco = UnityPoco()
 
-def request():
+
+'''
+获取ID方法 huoquID() 返回ID，在RUN方法里保存起来ID
+增加电卷方法，gm_dianjuan(id,num) 在run方法里，传入ID和数量 进行发送
+增加金币方法，gm_jinbi(id,num) 在run方法里，传入ID和数量 进行发送
+'''
+
+def huoquID():
     #获取账户ID
     poco("ui_top_left_user_image").click()
     id = poco("ui_number_id").attr('text')
     num_id = id[3::]
     print('你的账户ID：'+ num_id)
     poco("ui_close_btn_userinfo").click()
-
+    return id
+def gm_dianjuan(id,num):
     url = 'http://81.70.14.160:8016/gtest/majiang/send_rewards'    #请求地址
-
     header = {   #请求头
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'Accept-Encoding': 'gzip, deflate',
@@ -29,38 +36,58 @@ def request():
         'Upgrade-Insecure-Requests':'1',
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
     }
-
-    data1 = {   #请求的data参数
-        'userId':num_id,
+    dianjuan = {   #请求的data参数
+        'userId':id,
         'itemId':'user:conch',
-        'count':'1000000',
+        'count':num,
         'decoration':''
     }
-
-    data2 = {
-        'userId': num_id,
-        'itemId': 'user:chip',
-        'count': '10000000000000000',
-        'decoration': ''
-    }
-
-    post_data1 = urlencode(data1)    #使用urlencode方法处理请求的data数据。因为请求头中的Content-Type使用的是x-www-form-urlencoded，所以需要处理。
-    post_data2 = urlencode(data2)
+    post_data1 = urlencode(dianjuan)    #使用urlencode方法处理请求的data数据。因为请求头中的Content-Type使用的是x-www-form-urlencoded，所以需要处理。
     r = requests.post(url=url, data=post_data1, headers=header)   #向HTML网页提交POST请求的方法并赋值给对象
-    R = requests.post(url=url,data=post_data2, headers=header)
-
     A = r.text
     B = '增减成功'
     if B in A:
-        print('接口调用成功')
+        print(f'成功为id:{id}增加点券:{num}')
     else:
-        print('接口调用失败')
+        print('点券接口调用失败')
     # print(r.text)  #返回响应内容的字符串形式
     # print(r.content)   #内容的二进制形式
     # print(r.url)   #返回响应HTML地址
     # print(r.status_code) #返回状态码（内容值为‘200’表示访问成功）
 
-if __name__ == '__main__':
-    request()
+def gm_jinbi(id,num):
+    url = 'http://81.70.14.160:8016/gtest/majiang/send_rewards'    #请求地址
+    header = {   #请求头
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language':'zh-CN,zh;q=0.9',
+        'Cache-Control':'max-age=0',
+        'Connection':'keep-alive',
+        'Content-Length':'63',
+        'Content-Type':'application/x-www-form-urlencoded',
+        'Host':'81.70.14.160:8016',
+        'Origin':'http://81.70.14.160:8016',
+        'Referer':'http://81.70.14.160:8016/gtest/majiang/send_rewards',
+        'Upgrade-Insecure-Requests':'1',
+        'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    }
+    jinbi = {
+        'userId': id,
+        'itemId': 'user:chip',
+        'count': num,
+        'decoration': ''
+    }
+    post_data2 = urlencode(jinbi)
+    r = requests.post(url=url,data=post_data2, headers=header)
+    A = r.text
+    B = '增减成功'
+    if B in A:
+        print(f'成功为id:{id}添加金币:{num}')
+    else:
+        print('金币接口调用失败')
+    # print(r.text)  #返回响应内容的字符串形式
+    # print(r.content)   #内容的二进制形式
+    # print(r.url)   #返回响应HTML地址
+    # print(r.status_code) #返回状态码（内容值为‘200’表示访问成功）
 
 
