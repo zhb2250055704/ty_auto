@@ -5,6 +5,7 @@ from poco.drivers.unity3d import UnityPoco
 poco = UnityPoco()
 
 def fkssy():
+    print('-----疯狂十三幺场景开始-----')
     poco(name = "HallBtnxueliu_fk13y").click()
     poco(name = 'anniu_zi1').click()
     print(f'---快速开始---')
@@ -53,3 +54,4 @@ def fkssy():
             if poco(name='btn_go').exists():
                 poco(name='btn_close').click()
                 print(f'关闭雀神弹窗')
+    print('-----疯狂十三幺场景结束-----')

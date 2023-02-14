@@ -7,6 +7,7 @@ poco = UnityPoco()
 
 
 def hzxl():
+    print('-----血流红中场景开始-----')
     poco("HallBtnxueliu_hz_bxp").click()
     poco("twolevel_effpref_04").wait_for_appearance()
     poco(name = 'Image (1)').click()
@@ -64,3 +65,4 @@ def hzxl():
     if poco(name="Image (2)").exists():
         poco("btn_close").click()
         print(f'关闭雀神弹窗')
+    print('-----血流红中场景结束-----')
