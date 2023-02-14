@@ -1,7 +1,4 @@
 from airtest.core.api import *
-from poco.drivers.unity3d import UnityPoco
-# poco = UnityPoco()
-
 
 def xsyd(poco):
     # a = input('真实姓名：')

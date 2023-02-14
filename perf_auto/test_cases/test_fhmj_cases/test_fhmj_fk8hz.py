@@ -1,8 +1,7 @@
 from airtest.core.api import *
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
 
-def fk8hz():
+
+def fk8hz(poco):
     print('====开始执行疯狂⑧红中用例======')
     start_time = time.time()
     poco("HallBtnxueliu_hz_bxp").click()

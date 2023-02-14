@@ -1,12 +1,6 @@
 from airtest.core.api import *
 
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
-
-
-def hzxl():
+def hzxl(poco):
     poco("HallBtnxueliu_hz_bxp").click()
     poco("twolevel_effpref_04").wait_for_appearance()
     poco(name = 'Image (1)').click()
@@ -37,6 +31,8 @@ def hzxl():
                 poco.click([0.5778258, 0.5478659])
                 sleep(2)
                 print(f'第{x}次金币表情发送成功')
+                if poco("close").exists():
+                    break
             poco("close").wait_for_appearance(timeout=500)
             poco("Checkmark").click()
             print(f'勾选不在提示')
@@ -61,6 +57,6 @@ def hzxl():
             poco(name = 'ui_table_out').click()
             poco(name = "ui_btn_1").click()
             print(f'第{i}次循环完成')
-    if poco(name="Image (2)").exists():
+    if poco(name='btn_go').exists():
         poco("btn_close").click()
         print(f'关闭雀神弹窗')

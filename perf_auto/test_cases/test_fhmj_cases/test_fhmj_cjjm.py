@@ -1,8 +1,6 @@
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-from time import sleep
+from airtest.core.api import *
 
-def chengjiujiemian():
+def chengjiujiemian(poco):
     print('--------成就界面测试用例开始执行--------')
 #     点击进入成就界面
     print('------开始进入成就界面------')

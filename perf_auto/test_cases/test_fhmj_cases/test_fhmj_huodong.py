@@ -1,11 +1,7 @@
 from airtest.core.api import *
-#导入图片文件
-# from perf_auto.images import fhmj_img
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
 
 #活动
-def huodong():
+def huodong(poco):
     print('------活动场景开始------')
     poco(name='ui_hall_down_gongjulan_huodong').click()
     if poco(text='每日任务').exists():

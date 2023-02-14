@@ -1,10 +1,6 @@
 from airtest.core.api import *
 
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
-def fkssy():
+def fkssy(poco):
     poco(name = "HallBtnxueliu_fk13y").click()
     poco(name = 'anniu_zi1').click()
     print(f'---快速开始---')

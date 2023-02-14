@@ -1,10 +1,6 @@
 from airtest.core.api import *
 
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
-def duobao():
+def duobao(poco):
     print('-----夺宝场景开始运行-----')
     poco("ui_hall_down_gongjulan_draw").click()
     poco(text="夺宝").wait_for_appearance()

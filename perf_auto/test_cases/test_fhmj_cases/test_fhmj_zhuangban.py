@@ -1,11 +1,6 @@
 from airtest.core.api import *
 
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
-
-def zhuangban():
+def zhuangban(poco):
     print('-----装扮场景开始运行-----')
     poco("ui_hall_down_gongjulan_zhuangban").click()
     print('-----开始静置60s-----')

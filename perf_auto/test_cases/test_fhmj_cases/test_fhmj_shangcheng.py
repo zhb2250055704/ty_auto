@@ -1,11 +1,7 @@
 from airtest.core.api import *
 
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
 # 商城
-def shangcheng():
+def shangcheng(poco):
     print('-----商城场景开始-----')
     poco("shop_spine").click()
     print('-----开始静置60s-----')

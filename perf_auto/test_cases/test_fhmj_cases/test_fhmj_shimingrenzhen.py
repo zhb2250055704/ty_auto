@@ -1,9 +1,7 @@
 from airtest.core.api import *
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
 
 
-def shimingrenzhen():
+def shimingrenzhen(poco):
     a = input('真实姓名：')
     b = input('身份证号码：')
     poco(text="真实姓名").wait_for_appearance()

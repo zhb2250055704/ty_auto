@@ -1,9 +1,5 @@
-from airtest.core.api import *
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
 
-
-def bahongzhongtiaozhuan():
+def bahongzhongtiaozhuan(poco):
     print('------执行【八红中界面跳转】用例，共跳转20次-------')
     for i in range(1, 21):
         print(f'-------第{i}次跳转开始执行------')
