@@ -1,15 +1,7 @@
 from airtest.core.api import *
 
-<<<<<<< HEAD
 def fkssy(poco):
-=======
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
-def fkssy():
     print('-----疯狂十三幺场景开始-----')
->>>>>>> 2b1dbde1035340aff1b16e1fbe5b30bd4c0e0073
     poco(name = "HallBtnxueliu_fk13y").click()
     poco(name = 'anniu_zi1').click()
     print(f'---快速开始---')

@@ -1,17 +1,8 @@
 from airtest.core.api import *
 
-<<<<<<< HEAD
+
 def hzxl(poco):
-=======
-
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
-
-
-
-def hzxl():
     print('-----血流红中场景开始-----')
->>>>>>> 2b1dbde1035340aff1b16e1fbe5b30bd4c0e0073
     poco("HallBtnxueliu_hz_bxp").click()
     poco("twolevel_effpref_04").wait_for_appearance()
     poco(name = 'Image (1)').click()
