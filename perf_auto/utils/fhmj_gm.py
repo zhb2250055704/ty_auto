@@ -1,9 +1,6 @@
 import requests    #使用Pycharm来抓取网页的时候，要导入requests模块
 from urllib.parse import urlencode     #由于使用的是post请求，是通过request body传递参数，而body中的data参数是用urlencoded形式传过去的，用urlencode处理一下
-# import json
-from airtest.core.api import *
-from poco.drivers.unity3d import UnityPoco
-poco = UnityPoco()
+
 
 
 '''
@@ -12,7 +9,7 @@ poco = UnityPoco()
 增加金币方法，gm_jinbi(id,num) 在run方法里，传入ID和数量 进行发送
 '''
 
-def huoquID():
+def huoquID(poco):
     #获取账户ID
     poco("ui_top_left_user_image").click()
     id = poco("ui_number_id").attr('text')
