@@ -2,7 +2,11 @@ from airtest.core.api import *
 
 def zhuangban(poco):
     print('-----装扮场景开始运行-----')
-    poco("ui_hall_down_gongjulan_zhuangban").click()
+    if poco("ui_hall_down_gongjulan_zhuangban").exists():
+        print('装扮页面打开成功')
+    else:
+        poco.click([0.169049218, 0.924202144])
+        print('装扮页面打开成功')
     print('-----开始静置60s-----')
     sleep(60)
     print('-----静置结束-----')
