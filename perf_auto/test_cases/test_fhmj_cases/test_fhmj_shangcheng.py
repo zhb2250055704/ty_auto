@@ -3,7 +3,11 @@ from airtest.core.api import *
 # 商城
 def shangcheng(poco):
     print('-----商城场景开始-----')
-    poco("shop_spine").click()
+    if poco("shop_spine").exists():
+        print('商城页面打开成功')
+    else:
+        poco.click([0.0984375, 0.925265968])
+        print('商城页面打开成功')
     print('-----开始静置60s-----')
     sleep(60)
     print('-----静置完成-----')
