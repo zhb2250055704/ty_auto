@@ -1,12 +1,12 @@
 from airtest.core.api import *
 
 def bffxdh(poco):
+    start_time = time.time()
     # 在疯狂8红中对局结束后，直接播放番型动画
     print('======开始执行播放番型动画用例=======')
     poco(text='>').click()
     poco(name='18').click()
     poco(name='ui_btn_autofxplay').click()
-    start_time = time.time()
     print('开始播放番型动画')
     wait(Template(r"images/fhmj_img/sqsmcs.png"), timeout=1000)
     print('ok已找到最后一个动画：十全十美')

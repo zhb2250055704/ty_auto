@@ -1,8 +1,12 @@
 from airtest.core.api import *
 
 # 商城
+from poco.drivers.unity3d import UnityPoco
+
+
 def shangcheng(poco):
-    print('-----商城场景开始-----')
+    print('-----商城场景用例开始执行-----')
+    start_time = time.time()
     if poco("shop_spine").exists():
         print('商城页面打开成功')
     else:
@@ -23,7 +27,9 @@ def shangcheng(poco):
         if poco(name="Image (2)").exists():
             poco("btn_close").click()
     poco("ui_btn_back").click()
-    print('-----商城场景结束-----')
+    end_time = time.time()
+    print(f'-----商城用例场景结束，共用时{end_time-start_time}秒-----')
 
 if __name__ == '__main__':
-    shangcheng()
+    poco = UnityPoco()
+    shangcheng(poco)

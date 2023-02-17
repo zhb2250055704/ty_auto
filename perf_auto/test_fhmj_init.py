@@ -1,9 +1,11 @@
 import os
-from utils import device_ip, device_conn
+from utils import device_conn
+from test_cases.test_fhmj_cases import test_fhmj_xsyd
+from poco.drivers.unity3d import UnityPoco
 from airtest.core.api import *
+from utils import fhmj_gm
 import logging
-from utils.device_ip import get_ip
-
+logging.getLogger("airtest").setLevel(logging.ERROR)
 '''
 初始化模块说明：
 1、连接手机，开启无线调试模式
@@ -15,23 +17,8 @@ PS: 若出现ADB保存，请把线拔了，再插上，运行此模块即可
 '''
 
 # 获取手机的IP，将wifi与电脑同一局域网下，使用有线模式连接
-
-try:
-    IP = get_ip()
-    with open("config/device_ip.txt", "w+") as f:
-        f.write(IP)
-except Exception as e:
-    print(f'ADB报错为：{e}')
-    print('执行重启ADB操作')
-    os.system('adb kill-server')
-    os.system('adb reconnect')
-
-logging.getLogger("airtest").setLevel(logging.ERROR)
-os.system("adb tcpip 5555")
-print('设置adb端口为5555成功')
-
-device_conn.wifi_connect(IP)
-
+IP = device_conn.get_ip()
+device_conn.wifi_connect()
 
 # 图片对象封装
 fuwiq01 = "images/fhmj_img/fuwuqi01.png"
@@ -70,4 +57,7 @@ wait(Template(denglutongyi), timeout=10)
 touch(Template(denglutongyi))
 touch(Template(gouxuanxieyi))
 touch(Template(youkedenglu))
-
+sleep(1)
+poco = UnityPoco()
+test_fhmj_xsyd.xsyd(poco)
+id = fhmj_gm.huoquID(poco)

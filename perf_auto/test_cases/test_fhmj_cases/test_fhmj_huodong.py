@@ -2,7 +2,8 @@ from airtest.core.api import *
 
 #活动
 def huodong(poco):
-    print('------活动场景开始------')
+    print('------活动场景用例开始执行------')
+    start_time = time.time()
     poco(name='ui_hall_down_gongjulan_huodong').click()
     if poco(text='每日任务').exists():
         print('活动页面打开成功')
@@ -34,7 +35,8 @@ def huodong(poco):
         print(f'-----第{i}轮循环结束')
 #         swipe(Template(r"../perf_auto/images/fhmj_img/tuodong2.png", record_pos=(-0.262, 0.012), resolution=(2400, 1080)), vector=[0.0084, 0.2987])
     poco("ui_close").click()
-    print('-----活动场景结束-----')
+    end_time = time.time()
+    print(f'-----活动场景用例执行结束，共用时{end_time-start_time}秒-----')
 
 if __name__ == '__main__':
     huodong()

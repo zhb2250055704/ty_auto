@@ -1,7 +1,8 @@
 from airtest.core.api import *
 
 def fkssy(poco):
-    print('-----疯狂十三幺场景开始-----')
+    print('-----疯狂十三幺场景开始执行-----')
+    start_time = time.time()
     poco(name = "HallBtnxueliu_fk13y").click()
     poco(name = 'anniu_zi1').click()
     print(f'---快速开始---')
@@ -50,4 +51,5 @@ def fkssy(poco):
             if poco(name='btn_go').exists():
                 poco(name='btn_close').click()
                 print(f'关闭雀神弹窗')
-    print('-----疯狂十三幺场景结束-----')
+    end_time = time.time()
+    print(f'-----疯狂十三幺场景结束，共用时{end_time-start_time}秒-----')

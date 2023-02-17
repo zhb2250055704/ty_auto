@@ -2,7 +2,7 @@ from airtest.core.api import *
 
 
 def fk8hz(poco):
-    print('====开始执行疯狂⑧红中用例======')
+    print('====开始执行疯狂八红中用例======')
     start_time = time.time()
     poco("HallBtnxueliu_hz_bxp").click()
     poco("twolevel_effpref_04").wait_for_appearance()
@@ -46,4 +46,4 @@ def fk8hz(poco):
             poco(name='ui_button_back').click()
             print(f'第{i}次循环完成，对局结束，停留在牌桌，等待播放番型动画')
     end_time = time.time()
-    print(f'=====疯狂⑧红中用例执行完成，用时{end_time-start_time}秒=========')
+    print(f'=====疯狂八红中用例执行完成，用时{end_time-start_time}秒=========')

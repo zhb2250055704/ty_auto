@@ -1,7 +1,8 @@
 from airtest.core.api import *
 
 def zhuangban(poco):
-    print('-----装扮场景开始运行-----')
+    print('-----装扮场景用例开始执行-----')
+    start_time = time.time()
     if poco("ui_hall_down_gongjulan_zhuangban").exists():
         print('装扮页面打开成功')
     else:
@@ -19,7 +20,8 @@ def zhuangban(poco):
         poco(text = '表情').click()
     print(f'-----完成第{i}次页签切换')
     poco("ui_btn_back").click()
-    print('-----装扮场景运行结束-----')
+    end_time = time.time()
+    print(f'-----装扮场景运行结束，共用时{end_time-start_time}秒-----')
 
 if __name__ == '__main__':
     zhuangban()

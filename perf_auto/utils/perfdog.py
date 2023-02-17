@@ -16,11 +16,12 @@
 方法：close_exe()
 
 '''
-
 import subprocess
 import time
 import lackey
 import os
+from lackey import Button, Match
+
 
 perdog_exe = r'C:\Users\lh\Desktop\PerfDog(v8.0.221052)\PerfDog.exe'
 perdog_r = r'C:\Users\lh\Desktop\PerfDog(v8.0.221052)'
@@ -30,18 +31,21 @@ def open_exe():
     print('启动成功')
 
 def dadian():
-    lackey.click('photo/dadian.png')
+    lackey.click('utils/photo/dadian.png')
     print('打点成功')
 
+def kaishi():
+    lackey.click('utils/photo/kaishi.png')
+    print('开始测试')
 def jieshu():
-    lackey.click('photo/jieshu.png')
+    lackey.click('utils/photo/jieshu.png')
     print('性能测试结束,账号已退出')
 
 def tingzhi():
-    lackey.click('photo/tingzhi.png')
+    lackey.click('utils/photo/tingzhi.png')
     # 等待停止上传
     time.sleep(30)
-    lackey.click('photo/shangchuan.png')
+    lackey.click('utils/photo/shangchuan.png')
     # 等待数据上传
     time.sleep(30)
     print('性能测试已完成，停止测试')
@@ -58,4 +62,8 @@ if __name__ == '__main__':
     # dadian()
     # jieshu()
     # close_exe()
+    # kaishi()
+    screen = lackey.Screen()
+    click_png = lackey.Pattern('photo/dadian.png')
+    screen.click(click_png)
     print('==========perdog 测试结束==========')

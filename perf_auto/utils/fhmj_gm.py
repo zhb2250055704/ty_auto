@@ -16,7 +16,17 @@ def huoquID(poco):
     num_id = id[3::]
     print('你的账户ID：'+ num_id)
     poco("ui_close_btn_userinfo").click()
+    try:
+        with open(r'config/config_id.txt','w+') as f:
+            f.write(num_id)
+    except Exception as e:
+        print('id获取失败，请打开游戏，进入游戏大厅，再运行此模块')
     return num_id
+
+def get_id():
+    with open(r'config/config_id.txt', "r") as f:
+        id = f.read()
+    return id
 
 def gm_dianjuan(id,num):
     url = 'http://81.70.14.160:8016/gtest/majiang/send_rewards'    #请求地址

@@ -2,7 +2,8 @@ from airtest.core.api import *
 
 
 def hzxl(poco):
-    print('-----血流红中场景开始-----')
+    print('-----血流红中用例场景开始执行-----')
+    start_time = time.time()
     poco("HallBtnxueliu_hz_bxp").click()
     poco("twolevel_effpref_04").wait_for_appearance()
     poco(name = 'Image (1)').click()
@@ -62,4 +63,5 @@ def hzxl(poco):
     if poco(name='btn_go').exists():
         poco("btn_close").click()
         print(f'关闭雀神弹窗')
-    print('-----血流红中场景结束-----')
+    end_time = time.time()
+    print(f'-----血流红中场景结束，共用时{end_time-start_time}秒-----')

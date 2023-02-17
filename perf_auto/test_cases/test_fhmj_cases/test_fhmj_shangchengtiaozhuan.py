@@ -2,6 +2,7 @@ from airtest.core.api import *
 
 def shangchengtiaozhuan(poco):
     print('------执行【商城界面跳转】用例，共跳转20次-------')
+    start_time = time.time()
     i = 1
     for i in range(1,21):
         print(f'-------第{i}次跳转开始执行------')
@@ -11,4 +12,5 @@ def shangchengtiaozhuan(poco):
         poco("ui_btn_back").click()
         sleep(0.25)
         print(f'-------第{i}次跳转执行结束------')
-    print(f'-------完成【商城界面跳转】用例执行，共完成跳转{i}次----------')
+    end_time = time.time()
+    print(f'-------完成【商城界面跳转】用例执行，共用时{end_time-start_time}秒----------')
