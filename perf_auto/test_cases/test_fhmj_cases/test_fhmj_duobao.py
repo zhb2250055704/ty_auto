@@ -3,8 +3,8 @@ from airtest.core.api import *
 def duobao(poco):
     start_time = time.time()
     print('-----夺宝用例场景开始执行-----')
-    if poco("ui_hall_down_gongjulan_draw").exists():
-        poco("ui_hall_down_gongjulan_draw").click()
+    poco("ui_hall_down_gongjulan_draw").click()
+    if poco(text="夺宝").exists():
         print('夺宝标签成功获取')
     else:
         poco.click([0.459, 0.921])

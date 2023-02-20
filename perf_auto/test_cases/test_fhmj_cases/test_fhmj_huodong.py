@@ -1,6 +1,9 @@
 from airtest.core.api import *
 
 #活动
+from poco.drivers.unity3d import UnityPoco
+
+
 def huodong(poco):
     print('------活动场景用例开始执行------')
     start_time = time.time()
@@ -39,4 +42,5 @@ def huodong(poco):
     print(f'-----活动场景用例执行结束，共用时{end_time-start_time}秒-----')
 
 if __name__ == '__main__':
-    huodong()
+    poco = UnityPoco()
+    huodong(poco)

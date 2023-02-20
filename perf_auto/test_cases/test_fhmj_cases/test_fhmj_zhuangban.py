@@ -3,7 +3,8 @@ from airtest.core.api import *
 def zhuangban(poco):
     print('-----装扮场景用例开始执行-----')
     start_time = time.time()
-    if poco("ui_hall_down_gongjulan_zhuangban").exists():
+    poco("ui_hall_down_gongjulan_zhuangban").click()
+    if poco(text = '套装').exists():
         print('装扮页面打开成功')
     else:
         poco.click([0.168, 0.919])
