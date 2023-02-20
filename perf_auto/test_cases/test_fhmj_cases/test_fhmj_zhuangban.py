@@ -6,7 +6,7 @@ def zhuangban(poco):
     if poco("ui_hall_down_gongjulan_zhuangban").exists():
         print('装扮页面打开成功')
     else:
-        poco.click([0.169049218, 0.924202144])
+        poco.click([0.168, 0.919])
         print('装扮页面打开成功')
     print('-----开始静置60s-----')
     sleep(60)

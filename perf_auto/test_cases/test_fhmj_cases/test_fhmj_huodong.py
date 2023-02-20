@@ -8,7 +8,7 @@ def huodong(poco):
     if poco(text='每日任务').exists():
         print('活动页面打开成功')
     else:
-        poco.click([0.318259031, 0.924202144])
+        poco.click([0.311, 0.924])
         print('使用坐标定位，活动页面打开，点击进入')
     for i in range(1,21):
         poco(text='每日任务').swipe([0, -0.2])

@@ -10,7 +10,7 @@ def shangcheng(poco):
     if poco("shop_spine").exists():
         print('商城页面打开成功')
     else:
-        poco.click([0.0984375, 0.925265968])
+        poco.click([0.088, 0.888])
         print('商城页面打开成功')
     print('-----开始静置60s-----')
     sleep(60)

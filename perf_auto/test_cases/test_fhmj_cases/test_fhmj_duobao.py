@@ -3,7 +3,12 @@ from airtest.core.api import *
 def duobao(poco):
     start_time = time.time()
     print('-----夺宝用例场景开始执行-----')
-    poco("ui_hall_down_gongjulan_draw").click()
+    if poco("ui_hall_down_gongjulan_draw").exists():
+        poco("ui_hall_down_gongjulan_draw").click()
+        print('夺宝标签成功获取')
+    else:
+        poco.click([0.459, 0.921])
+        print('夺宝标签获取失败，改用坐标定位')
     poco(text="夺宝").wait_for_appearance()
     poco("ui_currencyBar_4").child("img_con").click()
     for i in range(1,5):

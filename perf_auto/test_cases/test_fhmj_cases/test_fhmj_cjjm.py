@@ -9,7 +9,7 @@ def chengjiujiemian(poco):
         poco(name='chengjidacheng_bj').click()
         print('成就标签未获取到，改用坐标定位点击')
     else:
-        poco.click([0.4641776, 0.924202144])
+        poco.click([0.459, 0.921])
         poco(name = 'chengjidacheng_bj').click()
         print('使用坐标定位，获取到成就标签，点击进入')
     print('--------进入成就界面完成---------')
