@@ -6,6 +6,7 @@ from airtest.core.api import *
 from utils import fhmj_gm
 import logging
 logging.getLogger("airtest").setLevel(logging.ERROR)
+
 '''
 初始化模块说明：
 1、连接手机，开启无线调试模式
@@ -39,13 +40,12 @@ clear_app(FHMJ_PACKAGE)
 print(f'清除APP：{FHMJ_PACKAGE}成功')
 start_app(QFGJ_PACKAGE)
 print('启动切服工具成功')
-sleep(2)
 touch(Template(fuwiq01))
 print('1.切换仿真服务器成功')
-sleep(2)
+sleep(1)
 touch(Template(debug02))
 print('2.切换DEBUG模式成功')
-sleep(2)
+sleep(1)
 touch(Template(gengxin03))
 print('3.关闭APP更新成功')
 stop_app(QFGJ_PACKAGE)
@@ -53,6 +53,9 @@ print('关闭切服工具')
 # 前置登录操作
 start_app(FHMJ_PACKAGE)
 print(f'启动APP：{FHMJ_PACKAGE}成功')
+
+
+
 wait(Template(denglutongyi), timeout=10)
 touch(Template(denglutongyi))
 touch(Template(gouxuanxieyi))

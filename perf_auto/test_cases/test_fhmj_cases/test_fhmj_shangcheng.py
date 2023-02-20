@@ -13,9 +13,9 @@ def shangcheng(poco):
     else:
         poco.click([0.088, 0.888])
         print('商城页面打开成功')
-    # print('-----开始静置60s-----')
-    # sleep(60)
-    # print('-----静置完成-----')
+    print('-----开始静置60s-----')
+    sleep(60)
+    print('-----静置完成-----')
     for i in range(1,6):
         poco(text='点券').click()
         poco(text='金币').click()
