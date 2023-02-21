@@ -1,4 +1,5 @@
 from airtest.core.api import *
+from poco.drivers.unity3d import UnityPoco
 
 
 def hzxl(poco):
@@ -7,7 +8,6 @@ def hzxl(poco):
     poco("HallBtnxueliu_hz_bxp").click()
     poco("twolevel_effpref_04").wait_for_appearance()
     poco(name = 'Image (1)').click()
-#     poco("ui_tab_bg").offspring("ui_tab_layout").child("TwoLevelTab")[0].child("Image (1)").click()
     poco(name = "ui_text_quick_start").click()
     #规则介绍
     if poco("RulesView").child("Image").exists():
@@ -26,7 +26,6 @@ def hzxl(poco):
             poco(name = "ui_img_menu_unflod").click()
             poco(name="ui_table_zidonghupai_text").click()
             print(f'托管成功')
-#      poco("ui_waitOpengift_login").wait_for_appearance(timeout=400)
         if i == 1:
             for x in range(1,6):
                 poco(name = "table_people_1").click()
@@ -42,16 +41,8 @@ def hzxl(poco):
             poco(text = "确 定").click()
             print(f'关闭红包成功')
             poco("ui_btnBuy").wait(3).click()
-#             poco("ui_btnBuy").click()
             poco("ui_button_again").click()
             print(f'第{i}次循环完成')
-#         elif i == 2:
-#             poco("ui_button_again").wait_for_appearance()
-#             poco("ui_button_again").click()
-#             sleep(3)
-#             if poco("ui_center_text").exists():
-#                 poco("ui_center_text").click()
-#             print(f'第二次循环完成')
         elif i == 2:
             poco(name = 'ui_button_again').wait_for_appearance(timeout=500)
             if poco(name = 'ui_btn_detail').exists():
@@ -65,3 +56,7 @@ def hzxl(poco):
         print(f'关闭雀神弹窗')
     end_time = time.time()
     print(f'-----血流红中场景结束，共用时{end_time-start_time}秒-----')
+
+if __name__ == '__main__':
+    poco = UnityPoco()
+    hzxl(poco)

@@ -1,4 +1,6 @@
 from airtest.core.api import *
+from poco.drivers.unity3d import UnityPoco
+
 
 def zhuangban(poco):
     print('-----装扮场景用例开始执行-----')
@@ -19,10 +21,11 @@ def zhuangban(poco):
         poco(text = '头像框').click()
         poco(text = '语音').click()
         poco(text = '表情').click()
-    print(f'-----完成第{i}次页签切换')
+        print(f'-----完成第{i}次页签切换')
     poco("ui_btn_back").click()
     end_time = time.time()
     print(f'-----装扮场景运行结束，共用时{end_time-start_time}秒-----')
 
 if __name__ == '__main__':
-    zhuangban()
+    poco = UnityPoco()
+    zhuangban(poco)
