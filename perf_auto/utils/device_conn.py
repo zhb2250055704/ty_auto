@@ -49,8 +49,11 @@ def youxian_connect():
 
 # 无线模式连接
 def wifi_connect():
-    with open(r'config/config_ip.txt', "r") as f:
-        ip = f.read()
+    try:
+        with open(r'config/config_ip.txt', "r") as f:
+            ip = f.read()
+    except Exception:
+        ip = input('请输入手机的IP地址：')
     # 手机与电脑处于同一wifi，查看手机WIFI的IP
     tcpip = ip + ':5555'
     device_1 = connect_device('android:///'+tcpip+'?cap_method=javacap&touch_method=adb')
