@@ -16,7 +16,7 @@ def duobao(poco):
         poco.click([0.459, 0.921])
         print('夺宝标签获取失败，改用坐标定位')
     print('夺宝界面进入成功，开始静置60s')
-    sleep(60)
+    # sleep(60)
     print('静置结束')
     poco(name="ui_currencyBar_4").click()
     poco(name='ui_Slider').click()

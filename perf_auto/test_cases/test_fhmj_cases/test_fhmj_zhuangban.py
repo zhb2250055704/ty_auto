@@ -12,7 +12,7 @@ def zhuangban(poco):
         poco.click([0.168, 0.919])
         print('装扮页面打开成功')
     print('-----开始静置60s-----')
-    sleep(60)
+    # sleep(60)
     print('-----静置结束-----')
     for i in range(1, 3):
         poco(text = '套装').click()

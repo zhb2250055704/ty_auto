@@ -99,7 +99,8 @@ def gm_jinbi(id,num):
     # print(r.status_code) #返回状态码（内容值为‘200’表示访问成功）
 
 if __name__ == '__main__':
-    id = huoquID()
-    gm_dianjuan(id,1000000)
-
+    # id = huoquID()
+    id = 112583
+    # gm_dianjuan(id,1000000)
+    gm_jinbi(id,100000000000)
 

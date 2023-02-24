@@ -1,4 +1,6 @@
 from airtest.core.api import *
+from poco.drivers.unity3d import UnityPoco
+
 
 def bffxdh(poco):
     start_time = time.time()
@@ -22,4 +24,6 @@ def bffxdh(poco):
     if poco(name='btn_go').exists():
         poco("btn_close").click()
         print(f'关闭雀神弹窗')
-
+if __name__ == '__main__':
+    poco = UnityPoco()
+    bffxdh(poco)
